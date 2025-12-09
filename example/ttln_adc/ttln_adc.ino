@@ -13,17 +13,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //node_id=0, read subs buf
-  if(node.sbusFlush(0)){
-    Serial.print("status:");
-    Serial.println(node.sbusStatus());//subs status
-    for(int ch=1; ch<=node.subsGetNum(); ch++){
-      Serial.print("ch:");
-      Serial.print(ch);
-      Serial.println(node.sbusGetch(ch));//subs ch:1~16
-    }
+  float pow_vol = node.adcPowVol(0);//node_id=0
+  if(!node.getLastError()){
+    Serial.print("pow_vol:");
+    Serial.println(pow_vol);//pow_vol
   }else{
-    Serial.println("subs buf err");
+    Serial.println("adc read err");
   }
   delay(100);
 }
