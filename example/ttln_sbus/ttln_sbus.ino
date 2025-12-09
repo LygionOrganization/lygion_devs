@@ -18,8 +18,9 @@ void loop() {
     Serial.print("status:");
     Serial.println(node.sbusStatus());//subs status
     for(int ch=1; ch<=node.subsGetNum(); ch++){
-      Serial.print("ch:");
+      Serial.print("ch");
       Serial.print(ch);
+      Serial.print(":");
       Serial.println(node.sbusGetch(ch));//subs ch:1~16
     }
   }else{
