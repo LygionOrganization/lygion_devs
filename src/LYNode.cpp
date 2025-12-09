@@ -88,7 +88,7 @@ float NodeClass::adcPowVol(u8 node_id)
 	int adc_val = adcGetch(node_id, 1);
 	float pow_vol = 0.0f;
 	if(!u8Error){
-		pow_vol = ((3.3f/4096)*adc_val*1.0f/(10.0f+1.0f));
+		pow_vol = ((5.0f/4096)*adc_val*(10.0f+1.0f));
 	}
 	return pow_vol;
 }
